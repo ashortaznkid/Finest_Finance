@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection.js");
 
-class Budget extends Model {}
+class Budget extends Model {};
 
 Budget.init(
     {
@@ -17,7 +17,7 @@ Budget.init(
             allowNull: false,
           },
           
-          userId: {
+          user_id: {
             type: DataTypes.INTEGER,
             references: {
               model: "user",
@@ -29,6 +29,7 @@ Budget.init(
         sequelize,
         underscored: true,
         timestamps: false,
+        freezeTableName: true,
         modelName: "budget",
      }
 );

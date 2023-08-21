@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Budget, Expense } = require('../../models');
+const { Budget, Expense, User } = require('../../models');
 
 router.post('/', async(req, res) =>{
     console.log (req.body)
@@ -37,6 +37,8 @@ router.put('/:id', async(req, res) => {
             res.status(404).json({ message: 'Budget is empty!'});
             return;
         }
+        res.status(500).json(error);
+    } catch (error) {
         res.status(500).json(error);
     }
 });
